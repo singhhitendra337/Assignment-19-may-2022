@@ -81,6 +81,20 @@ const updateRightText = (newValue) => {
   // console.log(itemData);
 };
 
+//Functions to handle arrow key movements
+
+const shiftUp = () => {
+  if (currIdx === 0) currIdx = data.length - 1;
+  else currIdx = currIdx - 1;
+  updateRightSide();
+};
+
+const shiftDown = () => {
+  if (currIdx == data.length - 1) currIdx = 0;
+  else currIdx = currIdx + 1;
+  updateRightSide();
+};
+
 //Function to limit the size of the left text to 29 characters
 
 const minimizeString = (string) => {
@@ -107,6 +121,11 @@ const callingFunctions = () => {
   rightText.addEventListener("input", (event) => {
     updateRightText(rightText.value);
   });
+
+  document.onkeydown = (event) => {
+    if (event.key === "ArrowUp") shiftUp();
+    else if (event.key === "ArrowDown") shiftDown();
+  };
 };
 
 //Fetching of data from JSON file
