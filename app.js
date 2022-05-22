@@ -100,7 +100,7 @@ const shiftDown = () => {
 const minimizeString = (string) => {
   let newString = "";
   const len = string.length;
-  if (len > 31) {
+  if (len > 29) {
     for (let i = 0; i < 13; i++) newString += string[i];
     newString += "...";
     for (let i = len - 13; i < len; i++) newString += string[i];
